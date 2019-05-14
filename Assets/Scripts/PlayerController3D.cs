@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController3D : Singleton<PlayerController3D>
 {
-    public List<Sprite> sprites;
+    public List<Sprite> Sprites;
 
     private Rigidbody pacBody;
 
@@ -82,12 +82,12 @@ public class PlayerController3D : Singleton<PlayerController3D>
 
             temp += Time.deltaTime;
 
-            if (temp >= animTime / sprites.Count)
+            if (temp >= animTime / Sprites.Count)
             {
-                if (count >= sprites.Count - 1)
+                if (count >= Sprites.Count - 1)
                 {
                     iterator = -1;
-                    count = sprites.Count - 1;
+                    count = Sprites.Count - 1;
                 }
                 else if (count <= 0)
                 {
@@ -97,8 +97,8 @@ public class PlayerController3D : Singleton<PlayerController3D>
 
                 count += iterator;
 
-                if (count >= 0 && count <= sprites.Count - 1)
-                    Sprite.sprite = sprites[count];
+                if (count >= 0 && count <= Sprites.Count - 1)
+                    Sprite.sprite = Sprites[count];
 
                 temp = 0;
             }

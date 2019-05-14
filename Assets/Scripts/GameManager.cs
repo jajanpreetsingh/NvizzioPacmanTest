@@ -70,18 +70,17 @@ public class GameManager : Singleton<GameManager>
     {
         --lives;
 
-        if (lives <= 0)
-        {
-            SceneManager.LoadScene(0);
-            return;
-        }
-
-        for (int i = 0; i < lives; i++)
+        for (int i = 0; i < Lives.Count; i++)
         {
             Lives[i].gameObject.SetActive(i <= lives - 1);
         }
 
-        ContinueAfterDead();
+        if (lives <= 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        else
+            ContinueAfterDead();
     }
 
     private void ContinueAfterDead()

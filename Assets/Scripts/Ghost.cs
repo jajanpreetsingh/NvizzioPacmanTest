@@ -21,7 +21,7 @@ public class Ghost : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (PlayerController3D.Instance.Moving)
+        if (PlayerController3D.Instance != null && PlayerController3D.Instance.Moving)
         {
             navAgent.SetDestination(PlayerController3D.Instance.gameObject.transform.position);
             navAgent.speed = 1.5f;
@@ -43,7 +43,6 @@ public class Ghost : MonoBehaviour
         {
             if (GameManager.Instance.isPowerPaletActive)
             {
-
                 GameManager.Instance.OnGhostDead(this);
             }
             else
@@ -57,6 +56,7 @@ public class Ghost : MonoBehaviour
     {
         Sprite.sprite = Fear;
     }
+
     public void ChangeSpriteToNormal()
     {
         Sprite.sprite = Normal;
