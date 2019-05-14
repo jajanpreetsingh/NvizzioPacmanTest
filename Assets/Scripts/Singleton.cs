@@ -11,8 +11,8 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
             if (instance == null)
                 instance = FindObjectOfType<T>();
 
-            if (instance == null)
-                throw new System.Exception("Object of type" + typeof(T).ToString() + "needed, but not found.");
+            //if (instance == null)
+            //    throw new System.Exception("Object of type " + typeof(T).ToString() + " needed, but not found.");
 
             return instance;
         }
